@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <DataGrid x:Name="dgCommand" HorizontalAlignment="Stretch" Margin = "5" VerticalAlignment="Stretch">
+            <DataGrid.Columns>
+                <!--<DataGridTextColumn x:Name="dgcDateTime" Binding="{Binding DateTime}" Header="Data/Hora"/>
+                <DataGridTextColumn x:Name="dgcCommand" Binding="{Binding CommandReceived}" Header="Commando Recebido"/>-->
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

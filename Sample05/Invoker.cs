@@ -13,7 +13,7 @@ namespace Sample05
         {
             this.server = new Server();
 
-            this.mementos = new List<CommandMemento>();
+            this.commands = new List<CommandMemento>();
         }
 
         public void SetCommand(String command)
@@ -21,7 +21,7 @@ namespace Sample05
             this.command = new ServerCommand(this.server, command);
 
             /* Save when, what, where they came from and the content of the message command */
-            this.mementos.Add(new CommandMemento(command, DateTime.Now));
+            this.commands.Add(new CommandMemento(command, DateTime.Now));
         }
 
         public void ExecuteCommand()
@@ -37,14 +37,16 @@ namespace Sample05
             }
         }
 
-        public List<String> RestoreCommands()
+        public List<CommandMemento> RestoreCommands()
         {
-            List<String> commands = new List<String>();
+            //List<String> commands = new List<String>();
 
-            foreach (CommandMemento memento in this.mementos)
-                commands.Add(memento.Command);
+            //foreach (CommandMemento memento in this.mementos)
+            //    commands.Add(memento.Command);
 
-            this.mementos.Clear();
+            List<CommandMemento> commands = new List<CommandMemento>(this.commands);
+            
+            this.commands.Clear();
 
             return commands;
         }
@@ -52,6 +54,6 @@ namespace Sample05
         private Server server;
         private ServerCommand command;
 
-        private List<CommandMemento> mementos;
+        private List<CommandMemento> commands;
     }
 }

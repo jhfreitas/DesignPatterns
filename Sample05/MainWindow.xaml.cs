@@ -33,6 +33,11 @@ namespace Sample05
             };
 
             this.invoker = new Invoker();
+            this.neighbor = new Server();
+            this._neighbor = new Server();
+
+            this.invoker.Server.Neighbors.Add(this.neighbor);
+            this.neighbor.Neighbors.Add(this._neighbor);
 
             foreach (String item in list)
             {
@@ -41,9 +46,13 @@ namespace Sample05
                 this.invoker.ExecuteCommand();
             }
 
-            List<String> commands = this.invoker.RestoreCommands();
+            List<CommandMemento> commands = this.invoker.RestoreCommands();
+
+            this.dgCommand.ItemsSource = commands;
         }
 
         private Invoker invoker;
+        private Server neighbor;
+        private Server _neighbor;
     }
 }

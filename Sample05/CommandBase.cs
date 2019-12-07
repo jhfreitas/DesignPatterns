@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Sample05
 {
-    abstract class Command
+    abstract class CommandBase
     {
         public abstract void Execute();
     }

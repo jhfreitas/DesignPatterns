@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace Sample05
 {
-    class ServerCommand : Command
+    class ServerCommand : CommandBase
     {
         public ServerCommand(Server server, String command)
         {
